@@ -4,7 +4,13 @@ body {
 
     margin: 30px;
 
-    background: #f4f4f4;
+    background: #0f9ea5;
+}
+#header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
 }
 
 h1 {
@@ -13,8 +19,10 @@ h1 {
 }
 
 .topbar {
-
+    color:white;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
 }
 
 input {
@@ -52,7 +60,6 @@ input {
 
     border: 1px solid #ccc;
 
-    padding: 15px;
 
     display: flex;
     height: 300px;
@@ -113,51 +120,23 @@ button {
 
     body {
 
-        margin: 10px;
-    }
+        margin: 5px;
 
-    .container {
-
-        flex-direction: column-reverse;
-    }
-
-    .panel-resumen {
-
-        width: 100%;
-
-        min-width: unset;
-
-        position: static;
-
-        max-height: unset;
+        font-size: 16px;
     }
 
     .tabla-principal {
 
         width: 100%;
 
-        overflow-x: auto;
+        overflow-x: hidden;
     }
 
     table {
 
-        min-width: 700px;
-    }
+        min-width: 100%;
 
-    input {
-
-        width: 100%;
-
-        box-sizing: border-box;
-    }
-
-    .topbar {
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 15px;
+        table-layout: fixed;
     }
 
     th,
@@ -165,16 +144,24 @@ button {
 
         padding: 8px;
 
-        font-size: 14px;
+        font-size: 15px;
+
+        word-break: break-word;
+    }
+
+    input {
+
+        width: 100%;
+
+        font-size: 16px;
+
+        box-sizing: border-box;
     }
 
     button {
 
-        width: 100%;
-    }
+        font-size: 15px;
 
-    #tablaResumenContainer {
-
-        max-height: 300px;
+        padding: 8px;
     }
 }

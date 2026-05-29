@@ -7,6 +7,15 @@ const inputUB =
 const filtro =
     document.getElementById("filtro");
 
+
+function normalizarTexto(texto) {
+
+    return texto
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+}
+
 async function cargarAPB() {
 
     try {
@@ -152,7 +161,9 @@ function actualizarValores() {
 function filtrarTabla() {
 
     const texto =
-        filtro.value.toLowerCase();
+        normalizarTexto(
+            filtro.value
+        );
 
     const filas =
         document.querySelectorAll(
@@ -162,14 +173,16 @@ function filtrarTabla() {
     filas.forEach(fila => {
 
         const determinacion =
-            fila.children[1]
-                .textContent
-                .toLowerCase();
+            normalizarTexto(
+                fila.children[1]
+                    .textContent
+            );
 
         const codigo =
-            fila.children[0]
-                .textContent
-                .toLowerCase();
+            normalizarTexto(
+                fila.children[0]
+                    .textContent
+            );
 
         const visible =
             determinacion.includes(texto)
@@ -182,7 +195,6 @@ function filtrarTabla() {
                 : "none";
     });
 }
-
 function agregarItem(boton) {
 
     const fila =
@@ -310,9 +322,23 @@ async function imprimirPDF() {
     const doc =
         new jsPDF();
 
+    // FECHA ACTUAL
+    const fecha =
+        new Date().toLocaleDateString(
+            "es-AR"
+        );
+
+    // TITULO
     doc.text(
-        "Detalle de pago",
+        "Presupuesto *",
         14,
+        15
+    );
+
+    // FECHA
+    doc.text(
+        `Fecha: ${fecha}`,
+        140,
         15
     );
 
@@ -332,7 +358,6 @@ async function imprimirPDF() {
             tds[3].textContent
         ]);
     });
-
     doc.autoTable({
 
         startY: 20,
@@ -344,12 +369,37 @@ async function imprimirPDF() {
             "Valor"
         ]],
 
-        body: filas
+        body: filas,
+
+        didDrawPage: function () {
+
+            const pageHeight =
+                doc.internal.pageSize.height;
+
+            doc.setFontSize(10);
+
+            doc.text(
+                "(*)Los presupuestos son válidos por 15 dias corridos.",
+                14,
+                pageHeight - 10
+            );
+        }
     });
+
+    // TOTAL
+    const total =
+        document.getElementById(
+            "totalFinal"
+        ).textContent;
+
+    doc.text(
+        `Total: ${total}`,
+        14,
+        doc.lastAutoTable.finalY + 10
+    );
 
     doc.save("detalle.pdf");
 }
-
 inputUB.addEventListener(
     "input",
     actualizarValores

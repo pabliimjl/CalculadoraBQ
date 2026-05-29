@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>NBU</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <h1>Nomenclador Bioquímico</h1>
+
+    <div class="topbar">
+
+        <div>
+
+            <label>
+                Valor unidad básica:
+            </label>
+
+            <input
+                type="number"
+                id="valorUB"
+                step="0.01"
+            >
+
+        </div>
+
+        <div style="margin-top:15px;">
+
+            <label>
+                Filtrar determinación:
+            </label>
+
+            <input
+                type="text"
+                id="filtro"
+                placeholder="Buscar..."
+            >
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="tabla-principal">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Código</th>
+                        <th>Determinación</th>
+                        <th>UB</th>
+                        <th>Valor en pesos</th>
+                        <th>Agregar</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="tablaBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="panel-resumen">
+
+            <h2>Detalle</h2>
+
+            <div id="tablaResumenContainer">
+
+                <table id="tablaResumen">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Código</th>
+                            <th>Determinación</th>
+                            <th>UB</th>
+                            <th>Valor</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody></tbody>
+
+                </table>
+
+            </div>
+
+            <h3 id="totalFinal">
+                Total: $0
+            </h3>
+
+            <button onclick="imprimirPDF()">
+                Imprimir PDF
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

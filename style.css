@@ -1,0 +1,117 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 30px;
+
+    background: #f4f4f4;
+}
+
+h1 {
+
+    margin-bottom: 20px;
+}
+
+.topbar {
+
+    margin-bottom: 20px;
+}
+
+input {
+
+    padding: 10px;
+
+    font-size: 16px;
+
+    width: 200px;
+}
+
+.container {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+.tabla-principal {
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+.panel-resumen {
+
+    width: 400px;
+
+    min-width: 400px;
+
+    background: white;
+
+    border: 1px solid #ccc;
+
+    padding: 15px;
+
+    position: sticky;
+
+    top: 20px;
+
+    max-height: 90vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+#tablaResumenContainer {
+
+    overflow-y: auto;
+
+    flex: 1;
+
+    border: 1px solid #ddd;
+
+    margin-bottom: 10px;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+}
+
+th,
+td {
+
+    border: 1px solid #ccc;
+
+    padding: 10px;
+
+    text-align: left;
+}
+
+th {
+
+    background: #e9e9e9;
+}
+
+tr:nth-child(even) {
+
+    background: #f9f9f9;
+}
+
+button {
+
+    cursor: pointer;
+
+    padding: 5px 10px;
+}

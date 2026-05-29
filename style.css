@@ -115,3 +115,74 @@ button {
 
     padding: 5px 10px;
 }
+
+@media (max-width: 1000px) {
+
+    body {
+
+        margin: 10px;
+    }
+
+    .container {
+
+        flex-direction: column-reverse;
+    }
+
+    .panel-resumen {
+
+        width: 100%;
+
+        min-width: unset;
+
+        position: static;
+
+        max-height: unset;
+    }
+
+    .tabla-principal {
+
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+    table {
+
+        min-width: 700px;
+    }
+
+    input {
+
+        width: 100%;
+
+        box-sizing: border-box;
+    }
+
+    .topbar {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    th,
+    td {
+
+        padding: 8px;
+
+        font-size: 14px;
+    }
+
+    button {
+
+        width: 100%;
+    }
+
+    #tablaResumenContainer {
+
+        max-height: 300px;
+        flex-
+    }
+}

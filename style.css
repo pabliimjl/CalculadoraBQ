@@ -30,7 +30,7 @@ input {
 
     display: flex;
 
-    align-items: flex-start;
+    flex-direction: column-reverse;
 
     gap: 20px;
 
@@ -46,9 +46,7 @@ input {
 
 .panel-resumen {
 
-    width: 400px;
-
-    min-width: 400px;
+    width: 100%;
 
     background: white;
 
@@ -56,13 +54,8 @@ input {
 
     padding: 15px;
 
-    position: sticky;
-
-    top: 20px;
-
-    max-height: 90vh;
-
     display: flex;
+    height: 300px;
 
     flex-direction: column;
 
